@@ -2,7 +2,7 @@
 <html>
     <head>
         <script src="https://web3examples.com/lib/web3-browserify.js"></script>  
-		<title>Versie 4</title>
+		<title>Versie 5</title>
 
     </head>
     <body>
@@ -97,7 +97,7 @@
 				"type": "function"
 			}
 		];
-		const WhatAreTheOdds = "0x1b924bd7EaE4ad11C25FB7D5002871505CFEeED7"
+		const WhatAreTheOdds = "0xE3001Ec64717c56985A8Ba52E39fA2Cf05b19f9B"
 			var acts = await web3.eth.getAccounts();
 		const ContractWhatAreTheOdds = new web3.eth.Contract(WhatAreTheOddsABI, WhatAreTheOdds);
 		var result = await ContractWhatAreTheOdds.methods.GiveTheOdds(5).send({
