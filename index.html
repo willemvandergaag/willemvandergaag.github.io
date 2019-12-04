@@ -2,7 +2,7 @@
 <html>
     <head>
         <script src="https://web3examples.com/lib/web3-browserify.js"></script>  
-	<title>Versie 3</title>
+		<title>Versie 4</title>
 
     </head>
     <body>
@@ -28,22 +28,6 @@
             log(`Here are the accounts: ${JSON.stringify(acts)}`);
             
             log(`This is framework 2`);
-			
-			ethereum.on('accountsChanged', newacts => { 					// check if account is changed
-                acts=newacts;
-                log(`We have new accounts: ${JSON.stringify(acts)}`);
-            })
-			
-			var chainId=await web3.eth.getChainId();						// check if chain is changed
-            log(`We are on chain: ${JSON.stringify(chainId)}`);            
-            ethereum.on('chainChanged', newChain);
-            ethereum.on('networkChanged',newChain); // still used in metamask mobile
-            ethereum.on('chainIdChanged',newChain);      // temp workaround
-            ethereum.autoRefreshOnNetworkChange = false; // temp workaround                    
-            function newChain(newchainId) {
-                chainId=newchainId;
-                log(`We have a new chain: ${chainId}`);
-            }
 			
 			const WhatAreTheOddsABI = [{									// own contract starts here
 				"constant": false,
@@ -113,7 +97,7 @@
 				"type": "function"
 			}
 		];
-		const WhatAreTheOdds = "0x427B0321455984F4e970aAf84ddB94bf008D7FcC"
+		const WhatAreTheOdds = "0x1b924bd7EaE4ad11C25FB7D5002871505CFEeED7"
 			var acts = await web3.eth.getAccounts();
 		const ContractWhatAreTheOdds = new web3.eth.Contract(WhatAreTheOddsABI, WhatAreTheOdds);
 		var result = await ContractWhatAreTheOdds.methods.GiveTheOdds(5).send({
@@ -137,7 +121,24 @@
 			}).catch(console.log);
 		console.log('The winner is Player', (result));
 		log(`The winner is Player ${JSON.stringify(result)}`);			
+		
+		ethereum.on('accountsChanged', newacts => { 					// check if account is changed
+                acts=newacts;
+                log(`We have new accounts: ${JSON.stringify(acts)}`);
+            })
+			
+			var chainId=await web3.eth.getChainId();						// check if chain is changed
+            log(`We are on chain: ${JSON.stringify(chainId)}`);            
+            ethereum.on('chainChanged', newChain);
+            ethereum.on('networkChanged',newChain); // still used in metamask mobile
+            ethereum.on('chainIdChanged',newChain);      // temp workaround
+            ethereum.autoRefreshOnNetworkChange = false; // temp workaround                    
+            function newChain(newchainId) {
+                chainId=newchainId;
+                log(`We have a new chain: ${chainId}`);
+            }
         }
+		
 		
         f();
         </script>        
