@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<title>Contract page</title>
         <script src="https://web3examples.com/lib/web3-browserify.js"></script>  
+	<title>Versie 2</title>
+
     </head>
     <body>
         <h1>HTML Framework 2</h1>
@@ -118,7 +119,7 @@
 		var result = await ContractWhatAreTheOdds.methods.GiveTheOdds(5).send({
 				from: acts[0]
 			}).catch(console.log);
-		//console.log(result.events[0].raw.data);
+		//  console.log(result.events[0].raw.data);
 		//	var decoded=web3.eth.abi.decodeParameters(WhatAreTheOddsABI, result.events[0].data)
 
 
