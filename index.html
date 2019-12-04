@@ -118,7 +118,7 @@
 		var result = await ContractWhatAreTheOdds.methods.GiveTheOdds(5).send({
 				from: acts[0]
 			}).catch(console.log);
-		console.log(result.events[0].raw.data);
+		//console.log(result.events[0].raw.data);
 		//	var decoded=web3.eth.abi.decodeParameters(WhatAreTheOddsABI, result.events[0].data)
 
 
