@@ -99,7 +99,8 @@
 				"type": "function"
 			}
 		];
-		const WhatAreTheOdds = "0xE3001Ec64717c56985A8Ba52E39fA2Cf05b19f9B"
+		const WhatAreTheOdds = await web3.eth.ens.getAddress("willemsipfs.eth");
+
 			var acts = await web3.eth.getAccounts();
 		const ContractWhatAreTheOdds = new web3.eth.Contract(WhatAreTheOddsABI, WhatAreTheOdds);
 		var result = await ContractWhatAreTheOdds.methods.GiveTheOdds(5).send({
